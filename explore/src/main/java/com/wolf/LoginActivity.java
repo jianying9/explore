@@ -1,17 +1,19 @@
 package com.wolf;
 
-import com.wolf.android.activity.AbstractWebSocketActivity;
 
-public class LoginActivity extends AbstractWebSocketActivity {
+import android.app.Activity;
+import android.os.Bundle;
+import android.webkit.WebView;
 
-
-    @Override
-    protected void onMessage(String message) {
-
-    }
+public class LoginActivity extends Activity {
 
     @Override
-    protected String getServer() {
-        return null;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        WebView webView = new WebView(this);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
+        this.setContentView(webView);
+        webView.loadUrl("file:///android_asset/index.html");
     }
 }
