@@ -3,9 +3,9 @@ define(function(require) {
     var _utils = yy.getUtils();
     var _cookie = yy.getCookie();
     require('jquery.mobile');
+    require('crypto.md5');
     //
     $.mobile.defaultPageTransition = 'none';
-    require('crypto.md5');
     var self = {};
     self.init = function() {
         var _httpServer = yy.getConfig('httpServer');
@@ -33,6 +33,7 @@ define(function(require) {
             if (error === '') {
                 var userEmail = $loginUserEmail.val();
                 var password = $loginPassword.val();
+                password = CryptoJS.MD5(password).toString();
                 var message = {
                     userEmail: userEmail,
                     password: password,
@@ -91,6 +92,7 @@ define(function(require) {
                 if (password === check) {
                     var nickName = $registerNickName.val();
                     var userEmail = $registerUserEmail.val();
+                    password = CryptoJS.MD5(password).toString();
                     var message = {
                         nickName: nickName,
                         userEmail: userEmail,
