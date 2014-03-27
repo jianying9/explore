@@ -16,6 +16,6 @@ public class LoginActivity extends Activity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
         this.setContentView(webView);
-        webView.loadUrl("file:///android_asset/index.html");
+        webView.loadUrl("file:///android_asset/mobile/index.html");
     }
 }
